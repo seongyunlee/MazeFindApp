@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_turn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="asdf"
+            app:layout_constraintBottom_toTopOf="@+id/gv_maze"
+            app:layout_constraintEnd_toStartOf="@id/btn_hint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hint"
+            android:id="@+id/btn_hint"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:onClick="showHint"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_turn"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <GridView
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:id="@+id/gv_maze"
+            app:layout_constraintTop_toBottomOf="@id/btn_hint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:numColumns="4"
+            android:background="@color/teal_700"
+            />
+
+        <Button
+            android:id="@+id/btn_left"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="left"
+            android:onClick="toLeft"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_updown"
+            app:layout_constraintEnd_toEndOf="@id/layout_updown"
+            app:layout_constraintEnd_toStartOf="@id/layout_updown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/layout_updown"
+            />
+
+        <LinearLayout
+            android:id="@+id/layout_updown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/gv_maze"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_up"
+                app:layout_constraintTop_toBottomOf="@id/gv_maze"
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="toUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="up"
+                android:layout_marginBottom="8dp"/>
+            <Button
+                android:id="@+id/btn_down"
+                android:onClick="toDown"
+                app:layout_constraintTop_toBottomOf="@id/btn_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="down"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="toRight"
+            android:text="right"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_updown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/layout_updown"
+            app:layout_constraintTop_toTopOf="@id/layout_updown" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
